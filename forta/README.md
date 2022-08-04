@@ -88,13 +88,31 @@ sudo apt-get install forta
 ```
 
 ## 4.2 Configure systemd service
+
 ```
-sudo mkdir /lib/systemd/system/forta.service.d
-tee /lib/systemd/system/forta.service.d/env.conf > /dev/null <<EOF
+nano /lib/systemd/system/forta.service
+```
+
+add this config inside forta.service file
+```
+[Unit]
+Description=Forta
+After=network-online.target
+Wants=network-online.target systemd-networkd-wait-online.service
+
+StartLimitIntervalSec=500
+StartLimitBurst=5
+
 [Service]
-Environment='FORTA_DIR=$FORTA_DIR'
-Environment='FORTA_PASSPHRASE=$FORTA_PASSPHRASE'
-EOF
+Environment="FORTA_DIR=/root/.forta/"
+Environment="FORTA_PASSPHRASE=<password>"
+Restart=on-failure
+RestartSec=15s
+
+ExecStart=/usr/bin/forta run
+
+[Install]
+WantedBy=multi-user.target
 ```
 
 ## 5. Initial forta scan node setup
