@@ -88,7 +88,7 @@ Healthy node should look like this:
 
 ## Generate wallet
 ```
-echo -e "y\n" | sui client
+sui client --json new-address
 ```
 > !Please backup your wallet key files located in `$HOME/.sui/sui_config/` directory!
 
