@@ -55,7 +55,7 @@ strided status 2>&1 | jq .SyncInfo
 ```
 ### (OPTIONAL)
 Live Peers
-Please refer [Nodejumper site](https://nodejumper.io/sei-testnet/sync) for live peers
+Please refer [Nodejumper site](https://nodejumper.io/stride-testnet/sync) for live peers
 
 ### (OPTIONAL) State Sync
 You can state sync your node in minutes by running commands below
