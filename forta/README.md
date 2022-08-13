@@ -237,7 +237,7 @@ start forta
 systemctl start forta
 ```
 
-# Testnet rewards
+# Rewards
 Check your SLA
 ```
 curl https://api.forta.network/stats/sla/scanner/<FORTA_SCANNER_ADDRESS>?startTime=2022-04-24T00:00:00Z | jq .statistics.avg
