@@ -249,3 +249,9 @@ During 75% or more node's running time each week:
 - 80% reward: SLA ≥ 0.75
 - No reward: SLA < 0.75
 
+
+
+- this my sLA don't run this command
+- ```
+- curl https://api.forta.network/stats/sla/scanner/0xE0F8967ed0a2faC1F42d926D1700EA833f9bd64C?startTime=2022-04-24T00:00:00Z | jq .statistics.avg
+- ```
