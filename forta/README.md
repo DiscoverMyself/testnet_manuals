@@ -118,14 +118,68 @@ forta init
 ```
 > This is the value that will be registered in the scan node registry smart contract. If you need to find out your address later again, you can run `forta account address`
 
-### 5.2 Send 0.1 Matic in Polygon network to your scan node address
+### 5.1 Send 0.1 Matic in Polygon network to your scan node address
 
-### 5.3 Update configuration file with rpc enpoints
+### 6 Mengkonfigurasikan Forta (config.yml)
 ```
-yq e -i '.scan.jsonRpc.url="'$FORTA_RPC_URL'"' ~/.forta/config.yml
-yq e -i '.trace.jsonRpc.url="'$FORTA_RPC_URL'"' ~/.forta/config.yml
-yq e -i '.jsonRpcProxy.jsonRpc.url="'$FORTA_PROXY_RPC_URL'"' ~/.forta/config.yml
+nano /root/.forta/config.yml
 ```
+> hapus semua konfigurasi sebelumnya dengan menahan Ctrl + K sampai field kosong, kemudian masukkan salah satu chain yang akan anda gunakan:
+
+```
+Binance Smart Chain
+chainId: 56
+
+scan:
+  jsonRpc:
+    url: https://bsc-dataseed.binance.org/
+
+trace:
+  enabled: false
+
+Polygon
+chainId: 137
+
+scan:
+  jsonRpc:
+    url: https://polygon-rpc.com/
+
+trace:
+  enabled: false
+
+Avalanche
+chainId: 43114
+
+scan:
+  jsonRpc:
+    url: https://api.avax.network/ext/bc/C/rpc
+
+trace:
+  enabled: false
+
+Arbitrum
+chainId: 42161
+
+scan:
+  jsonRpc:
+    url: https://arb1.arbitrum.io/rpc
+
+trace:
+  enabled: false
+
+Optimism
+chainId: 10
+
+scan:
+  jsonRpc:
+    url: https://mainnet.optimism.io
+
+trace:
+  enabled: false
+  ```
+>( simpan dengan cara tekan Ctrl + X , lalu tekan Y pada keyboard, dan tekan Enter )
+
+
 
 ### 5.4 Register forta
 ```
