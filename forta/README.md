@@ -126,8 +126,9 @@ nano /root/.forta/config.yml
 ```
 > hapus semua konfigurasi sebelumnya dengan menahan Ctrl + K sampai field kosong, kemudian masukkan salah satu chain yang akan anda gunakan:
 
+
+#### Binance Smart Chain
 ```
-Binance Smart Chain
 chainId: 56
 
 scan:
@@ -136,8 +137,10 @@ scan:
 
 trace:
   enabled: false
+```
 
-Polygon
+#### Polygon
+```
 chainId: 137
 
 scan:
@@ -146,8 +149,10 @@ scan:
 
 trace:
   enabled: false
+```
 
-Avalanche
+#### Avalanche
+```
 chainId: 43114
 
 scan:
@@ -156,8 +161,10 @@ scan:
 
 trace:
   enabled: false
+```
 
-Arbitrum
+#### Arbitrum
+```
 chainId: 42161
 
 scan:
@@ -166,8 +173,10 @@ scan:
 
 trace:
   enabled: false
+```
 
-Optimism
+#### Optimism
+```
 chainId: 10
 
 scan:
