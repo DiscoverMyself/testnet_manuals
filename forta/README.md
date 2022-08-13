@@ -23,39 +23,34 @@ Explorer:
 ### 1. Create new metamask wallet and fund it with 1 MATIC in Polygon network. This address will be used as forta owner
 ### 2. Register at https://moralis.io/ to generate proxy rpc url
 
-## 0. Set environment variables
-```
-rm ~/.bash_profile
-echo "export FORTA_PASSPHRASE=<YOUR_PASSPHRASE>" >> ~/.bash_profile
-echo "export FORTA_OWNER_ADDRESS=<YOUR_FORTA_OWNER_ADDRESS>" >> ~/.bash_profile
-echo "export FORTA_RPC_URL=<YOUR_FORTA_RPC_URL>" >> ~/.bash_profile
-echo "export FORTA_PROXY_RPC_URL=<YOUR_FORTA_PROXY_RPC_URL>" >> ~/.bash_profile
-echo "export FORTA_DIR=~/.forta" >> ~/.bash_profile
-source ~/.bash_profile
-```
 
-## 1. Update packages
+## 0. Update packages
 ```
 sudo apt update && sudo apt upgrade -y
 ```
 
-## 2. Install dependencies
+### 1. Download & Install Docker
 ```
-sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/v4.23.1/yq_linux_amd64 && chmod +x /usr/local/bin/yq
-sudo apt-get install jq -y
+apt install ca-certificates curl gnupg lsb-release git htop
 ```
-
-## 3. Install docker
-### 3.1 Download and install docker
 ```
-sudo apt-get install ca-certificates curl gnupg lsb-release -y
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+```
+```
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io -y
+```
+```
+apt-get update
+```
+```
+apt-get install docker-ce docker-ce-cli containerd.io
+```
+Cek versi docker
+```
+docker version
 ```
 
-### 3.2 Configure docker address pools
+### 2. Konfigurasikan Docker Address Pools
 ```
 tee /etc/docker/daemon.json > /dev/null <<EOF
 {
@@ -78,8 +73,8 @@ EOF
 systemctl restart docker
 ```
 
-## 4. Install forta
-### 4.1 Download and install forta binaries
+## 3 Install forta
+### 3.1 Download and install forta binaries
 ```
 sudo curl https://dist.forta.network/pgp.public -o /usr/share/keyrings/forta-keyring.asc -s
 echo 'deb [signed-by=/usr/share/keyrings/forta-keyring.asc] https://dist.forta.network/repositories/apt stable main' | sudo tee -a /etc/apt/sources.list.d/forta.list
@@ -87,7 +82,7 @@ sudo apt-get update
 sudo apt-get install forta
 ```
 
-## 4.2 Configure systemd service
+## 3.2 Configure systemd service
 
 ```
 nano /lib/systemd/system/forta.service
@@ -114,9 +109,10 @@ ExecStart=/usr/bin/forta run
 [Install]
 WantedBy=multi-user.target
 ```
+- password jgn lupa diisi
 
-## 5. Initial forta scan node setup
-### 5.1 Initialize Forta using the forta init command
+## 4. Initial forta scan node setup (Membuat Node scan baru)
+### 4.1 Initialize Forta using the forta init command
 ```
 forta init
 ```
