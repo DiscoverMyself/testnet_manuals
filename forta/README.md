@@ -124,7 +124,7 @@ forta init
 ```
 nano /root/.forta/config.yml
 ```
-> hapus semua konfigurasi sebelumnya dengan menahan Ctrl + K sampai field kosong, kemudian masukkan salah satu chain yang akan anda gunakan:
+### hapus semua konfigurasi sebelumnya dengan menahan Ctrl + K sampai field kosong, kemudian masukkan salah satu chain yang akan anda gunakan:
 
 
 #### Binance Smart Chain
